@@ -39,4 +39,13 @@ public class StringCalculatorTest {
     public void shouldReturnSumOfMultipleCustomDelimitedStrings() {
         assertThat(calculator.add("//;\n1;2"), is(3));
     }
+
+    @Test
+    public void shouldThrowExceptionForNegatives() {
+        try {
+            calculator.add("-3,2,-23,5");
+        } catch (Exception e) {
+            assertThat(e.getMessage(), is("Negatives not allowed: -3 -23"));
+        }
+    }
 }

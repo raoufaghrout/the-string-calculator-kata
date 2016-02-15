@@ -15,7 +15,25 @@ public class StringCalculator {
             return 0;
         }
 
-        return sumNumbers(splitter.splitString(string));
+        String[] numbers = splitter.splitString(string);
+
+        checkForNegatives(numbers);
+
+        return sumNumbers(numbers);
+    }
+
+    private void checkForNegatives(String[] numbers) {
+        String negatives = "";
+
+        for (String number : numbers) {
+            if (number.startsWith("-")) {
+                negatives += " " + number;
+            }
+        }
+
+        if (!"".equals(negatives)) {
+            throw new RuntimeException("Negatives not allowed:" + negatives);
+        }
     }
 
     private int sumNumbers(String[] numbers) {
