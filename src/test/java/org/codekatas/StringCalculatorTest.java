@@ -8,9 +8,16 @@ import static org.hamcrest.core.Is.is;
 public class StringCalculatorTest {
 
     @Test
-    public void shoulReturnZeroForAnEmptyString() {
+    public void shouldReturnZeroForAnEmptyString() {
         StringCalculator calculator = new StringCalculator();
 
         assertThat(calculator.add(""), is(0));
+    }
+
+    @Test
+    public void shouldReturnOneForAStringContainingOne() {
+        StringCalculator calculator = new StringCalculator();
+
+        assertThat(calculator.add("1"), is(1));
     }
 }
