@@ -7,7 +7,8 @@ import static org.hamcrest.core.Is.is;
 
 public class StringCalculatorTest {
 
-    private StringCalculator calculator = new StringCalculator();
+    private Splitter splitter = new Splitter();
+    private StringCalculator calculator = new StringCalculator(splitter);
 
     @Test
     public void shouldReturnZeroForAnEmptyString() {
@@ -32,5 +33,10 @@ public class StringCalculatorTest {
     @Test
     public void shouldReturnSumOfMultipleCommaAndNewLineDelimitedStrings() {
         assertThat(calculator.add("1\n2,3\n4"), is(10));
+    }
+
+    @Test
+    public void shouldReturnSumOfMultipleCustomDelimitedStrings() {
+        assertThat(calculator.add("//;\n1;2"), is(3));
     }
 }
