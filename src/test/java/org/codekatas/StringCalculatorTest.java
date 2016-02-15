@@ -20,4 +20,11 @@ public class StringCalculatorTest {
 
         assertThat(calculator.add("1"), is(1));
     }
+
+    @Test
+    public void shouldReturnSumOfTwoStringsCommaSeparated() {
+        StringCalculator calculator = new StringCalculator();
+
+        assertThat(calculator.add("1,2"), is(3));
+    }
 }
